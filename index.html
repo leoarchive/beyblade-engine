@@ -7,12 +7,23 @@
   <link rel="stylesheet" href="style.css">
   <script type="module">
     import { init_bladewar } from "./src/main.js"
+    import { init_battle } from "./src/battle.js"
     init_bladewar();
+    window.init_battle = init_battle;
   </script>
   <title>BladeWar</title>
 </head>
 
 <body>
+  <header>
+    <button onclick="init_battle()">Start</button>
+  </header>
+  <main id="field">
+
+  </main>
+  <footer>
+
+  </footer>
 </body>
 
 </html>

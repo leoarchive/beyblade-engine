@@ -1,6 +1,6 @@
 export function init_canvas() {
   let canvas = document.createElement("canvas");
-  document.body.appendChild(canvas);
+  document.getElementById("field").appendChild(canvas);
 
   document.body.style.margin = 0;
   canvas.style.position = "fixed";

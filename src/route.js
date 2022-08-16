@@ -5,28 +5,31 @@ let route = {
   y: 0,
   moves: 0,
   leave_click: false,
+  pos: [],
 };
 
 export function init_route(ctx, moves_available) {
-  route = {
-    moves: moves_available,
-  };
+  route.moves = moves_available;
 
   window.addEventListener("resize", resize(ctx));
-  document.addEventListener("mousemove", (e) => draw(e, ctx, route));
-  document.addEventListener("mousedown", (e) => setPosition(e, route));
+  document.addEventListener("mousemove", (e) => draw(e, ctx));
+  document.addEventListener("mousedown", (e) => setPosition(e));
   document.addEventListener("mouseup", (e) => (route.leave_click = true));
-  document.addEventListener("mouseenter", (e) => setPosition(e, route));
+  // document.addEventListener("mouseenter", (e) => setPosition(e));
+
+  return route;
 }
 
-function setPosition(e, route) {
+function setPosition(e) {
   if (--route.moves <= 0 || route.leave_click) return;
 
   route.x = e.clientX;
   route.y = e.clientY;
+
+  route.pos.push({ x: e.clientX, y: e.clientY });
 }
 
-function draw(e, ctx, route) {
+function draw(e, ctx) {
   if (e.buttons !== 1) return;
 
   ctx.beginPath();
