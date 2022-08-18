@@ -22,6 +22,7 @@ export function init_route(ctx, moves_available) {
 
 function setPosition(e) {
   if (--route.moves <= 0 || route.leave_click) return;
+  document.getElementById('steps').innerText = route.moves
 
   route.x = e.clientX;
   route.y = e.clientY;

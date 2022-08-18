@@ -13,7 +13,7 @@ export function init_bladewar() {
 
   bladewar.canvas = canvas;
   bladewar.ctx = ctx;
-  bladewar.route = init_route(ctx, 100);
+  bladewar.route = init_route(ctx, 1000);
 
   battle.canvas = canvas;
   battle.ctx = ctx;
